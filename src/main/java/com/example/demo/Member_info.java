@@ -11,12 +11,13 @@ import java.util.List;
 public class Member_info {
     @GeneratedValue
     @javax.persistence.Id
+    @Column(name = "member_id")
     private Long Id;
     private String name;
 
 
     @OneToMany(mappedBy = "member_Orders_Info")
     private List<Member_Order> orders =new ArrayList<>();
-    @OneToMany(mappedBy = "memberInfo")
-    private List<Book> book=new ArrayList<>();
+
+
 }

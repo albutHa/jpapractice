@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,5 +20,7 @@ public class House {
 
     @Embedded
     private Place place;
+    @OneToMany(mappedBy = "House")
+    List<Familly> f=new ArrayList<>();
 
 }
