@@ -20,7 +20,5 @@ public class House {
 
     @Embedded
     private Place place;
-    @OneToMany(mappedBy = "House")
-    List<Familly> f=new ArrayList<>();
 
 }

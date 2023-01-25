@@ -1,2 +1,4 @@
-package com.example.demo;public class Area {
+package com.example.demo;
+
+public class Area {
 }

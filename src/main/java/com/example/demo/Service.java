@@ -8,7 +8,7 @@ public class Service {
     private  Repository repository;
 
 
-    public Long save(Member_info memberInfo){
+    public Long save(Member_info memberInfo) {
         repository.Save(memberInfo);
         return memberInfo.getId();
     }
