@@ -14,7 +14,6 @@ public class Repository {
 
     public void Save(Member_info memberInfo){
         em.persist(memberInfo);
-
     }
 
     public List<Member_info> findAll() {

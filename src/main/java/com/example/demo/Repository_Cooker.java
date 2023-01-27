@@ -1,25 +1,36 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 @Repository
+@NoArgsConstructor
 public class Repository_Cooker {
 
-    @Autowired
-    private EntityManager entityManager;
+    @PersistenceContext
+     EntityManager em;
 
     public void save(Cooker cooker){
-        entityManager.persist(cooker);
+
+        em.persist(cooker);
+
     }
 
-    public Cooker save_one(int age){
-        return entityManager.find(Cooker.class,age);
+    public Cooker find_one(Long id){
+        return em.find(Cooker.class,id);
     }
 
 
+    public List<Cooker> find_all() {
+       return em.createQuery("select c from Cooker c",Cooker.class).getResultList();
+    }
+
+    public List<Cooker> findbyName(String name){
+        return em.createQuery("select c from Cooker c where c.name= :name", Cooker.class).setParameter("name", name).getResultList();
+    }
 
 }

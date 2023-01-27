@@ -4,34 +4,33 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Repository;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
-@Rollback
 @Transactional
+
 class Repository_CookerTest {
 
     @Autowired
-    Service_Cooker cooker;
+    Service_Cooker Service_Cooker;
 
     @Autowired
     Repository_Cooker repositoryCooker;
 
     @Test
     @Rollback(value = false)
-
     void 테스트(){
         Cooker cooker=new Cooker();
+       //cooker.setId(123L);
+      // cooker.getId();
         cooker.setExp(1);
-        cooker.getId();
+        cooker.setName("123");
         cooker.setAge(23);
-        repositoryCooker.save(cooker);
+        Long id=Service_Cooker.save(cooker);
 
-        //Assertions.assertEquals(cooker,repositoryCooker.save_one(23));
+        Assertions.assertEquals(cooker,repositoryCooker.find_one(id));
 
     }
 

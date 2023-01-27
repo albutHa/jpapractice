@@ -9,12 +9,15 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
+
 public class Cooker {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cooker_id")
     private Long Id;
+
+    private String name;
     private int age;
     private int exp;
 

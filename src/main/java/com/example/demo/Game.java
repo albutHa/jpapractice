@@ -16,5 +16,4 @@ public class Game {
     @OneToMany (mappedBy = "game")
     List<Charactor> charactors=new ArrayList();
 
-
 }

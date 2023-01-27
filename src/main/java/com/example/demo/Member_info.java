@@ -10,8 +10,8 @@ import java.util.List;
 @Entity @Getter @Setter
 public class Member_info {
     @GeneratedValue
-    @javax.persistence.Id
-    @Column(name = "member_id")
+
+    @Id   @Column(name = "member_id")
     private Long Id;
     private String name;
 
